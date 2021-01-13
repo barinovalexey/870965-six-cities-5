@@ -6,17 +6,22 @@ export default class PlacesList extends PureComponent {
   constructor(props) {
     super(props);
 
+    this.state = {
+      activeCard: null,
+    };
   }
 
   render() {
     const {offers} = this.props;
+    // eslint-disable-next-line no-console
+    console.log(this.state);
     return (
       <div className="cities__places-list places__list tabs__content">
         {offers.map((item, i) => <PlaceCard
           key={item.name + i}
           offer={item}
           onCardHover={() => {
-            console.log(item);
+            this.setState({activeCard: item});
           }}
         />)}
       </div>
