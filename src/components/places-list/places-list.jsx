@@ -20,8 +20,8 @@ export default class PlacesList extends PureComponent {
         {offers.map((item, i) => <PlaceCard
           key={item.name + i}
           offer={item}
-          onCardHover={() => {
-            this.setState({activeCard: item});
+          onCardHover={(offer) => {
+            this.setState({activeCard: offer});
           }}
         />)}
       </div>
