@@ -1,12 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/app/app.jsx";
-
-const placeCards = [`Nice, cozy, warm big bed apartment`, `Canal View Prinsengracht`, `Wood and stone place`, `Beautiful &amp; luxurious apartment at great location`];
+import {offers} from "./mocks/offers";
 
 ReactDOM.render(
     <App
-      placeCards = {placeCards}
+      offers = {offers}
     />,
     document.querySelector(`#root`)
 );
