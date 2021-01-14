@@ -13,8 +13,7 @@ export default class PlacesList extends PureComponent {
 
   render() {
     const {offers} = this.props;
-    // eslint-disable-next-line no-console
-    console.log(this.state);
+
     return (
       <div className="cities__places-list places__list tabs__content">
         {offers.map((item, i) => <PlaceCard
