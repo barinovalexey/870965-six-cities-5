@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import PlaceCard from "./place-card.jsx";
+import Property from "./property";
 
 const mockOffer = {
   name: `Beautiful &amp; luxurious apartment at great location`,
@@ -25,12 +25,10 @@ const mockOffer = {
   isHostPro: true,
 };
 
-it(`Render App`, function () {
+it(`Render Property`, function () {
   const tree = renderer
-    .create(<PlaceCard
+    .create(<Property
       offer={mockOffer}
-      onCardHover={() => {}}
-      onCardTitleClick={() => {}}
     />)
     .toJSON();
 
