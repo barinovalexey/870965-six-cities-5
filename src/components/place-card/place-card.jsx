@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const PlaceCard = (props) => {
-  const {offer, onCardHover} = props;
+  const {offer, onCardHover, onCardTitleClick} = props;
 
   return (
     <article className="cities__place-card place-card" onMouseEnter={() => {
@@ -16,7 +16,7 @@ const PlaceCard = (props) => {
 
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
-          <img className="place-card__image" src={offer.image} width="260" height="200"
+          <img className="place-card__image" src={offer.images[0]} width="260" height="200"
             alt="Place image"/>
         </a>
       </div>
@@ -26,7 +26,14 @@ const PlaceCard = (props) => {
             <b className="place-card__price-value">&euro;{offer.price}</b>
             <span className="place-card__price-text">&#47;&nbsp;{offer.priceText}</span>
           </div>
-          <button className="place-card__bookmark-button button" type="button">
+          <button
+            className={
+              `place-card__bookmark-button
+                    ${offer.inBookmarks && `place-card__bookmark-button--active `}
+                    button`
+            }
+            type="button"
+          >
             <svg className="place-card__bookmark-icon" width="18" height="19">
               <use xlinkHref="#icon-bookmark"></use>
             </svg>
@@ -40,7 +47,10 @@ const PlaceCard = (props) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">{offer.name}</a>
+          <a href="#" onClick={(evt) => {
+            evt.preventDefault();
+            onCardTitleClick(offer);
+          }}>{offer.name}</a>
         </h2>
         <p className="place-card__type">{offer.type}</p>
       </div>
@@ -55,11 +65,19 @@ PlaceCard.propTypes = {
     rating: PropTypes.string.isRequired,
     price: PropTypes.string.isRequired,
     priceText: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
+    images: PropTypes.array.isRequired,
     mark: PropTypes.string.isRequired,
     inBookmarks: PropTypes.bool,
+    bedrooms: PropTypes.string.isRequired,
+    adults: PropTypes.string.isRequired,
+    inside: PropTypes.array.isRequired,
+    description: PropTypes.string.isRequired,
+    hostName: PropTypes.string.isRequired,
+    hostAvatar: PropTypes.string.isRequired,
+    isHostPro: PropTypes.bool,
   }),
-  onCardHover: PropTypes.func.isRequired
+  onCardHover: PropTypes.func.isRequired,
+  onCardTitleClick: PropTypes.func.isRequired
 };
 
 export default PlaceCard;

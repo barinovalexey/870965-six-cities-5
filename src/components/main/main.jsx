@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import PlacesList from "../places-list/places-list.jsx";
 
 const Main = (props) => {
-  const {offers} = props;
+  const {offers, onCardTitleClick} = props;
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -89,6 +89,7 @@ const Main = (props) => {
               </form>
               <PlacesList
                 offers={offers}
+                onCardTitleClick ={onCardTitleClick}
               />
             </section>
             <div className="cities__right-section">
@@ -102,7 +103,8 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  offers: PropTypes.array.isRequired
+  offers: PropTypes.array.isRequired,
+  onCardTitleClick: PropTypes.func.isRequired
 };
 
 export default Main;
