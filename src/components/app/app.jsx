@@ -20,6 +20,7 @@ export default class App extends PureComponent {
       return (
         <Property
           offer={this.state.currentOffer}
+          offers = {offers}
         />
       );
     }

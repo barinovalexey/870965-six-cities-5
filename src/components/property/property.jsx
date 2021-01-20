@@ -2,9 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import ReviewsList from "../reviewsList/reviewsList.jsx";
 import reviews from "../../mocks/reviews";
+import Leaflet from "../leaflet/leaflet.jsx";
 
 const Property = (props) => {
-  const {offer} = props;
+  const {offer, offers} = props;
   return (
     <div className="page">
       <header className="header">
@@ -123,7 +124,13 @@ const Property = (props) => {
               />
             </div>
           </div>
-          <section className="property__map map"></section>
+          <section className="property__map map">
+            <Leaflet
+              offers={offers.slice(0, 3)}
+              city = {offer.coords}
+              zoom = {12}
+            />
+          </section>
         </section>
         <div className="container">
           <section className="near-places places">
@@ -252,7 +259,9 @@ Property.propTypes = {
     hostName: PropTypes.string.isRequired,
     hostAvatar: PropTypes.string.isRequired,
     isHostPro: PropTypes.bool,
-  })
+    coords: PropTypes.array.isRequired,
+  }),
+  offers: PropTypes.array.isRequired,
 };
 
 export default Property;
