@@ -20,6 +20,7 @@ export const offers = [
     hostName: `Angelina`,
     hostAvatar: `img/avatar-angelina.jpg`,
     isHostPro: true,
+    coords: [52.3909553943508, 4.85309666406198],
   },
   {
     name: `Wood and stone place`,
@@ -42,6 +43,7 @@ export const offers = [
     hostName: `Angelina`,
     hostAvatar: `img/avatar-angelina.jpg`,
     isHostPro: true,
+    coords: [52.369553943508, 4.85309666406198],
   },
   {
     name: `Canal View Prinsengracht`,
@@ -64,6 +66,7 @@ export const offers = [
     hostName: `Angelina`,
     hostAvatar: `img/avatar-angelina.jpg`,
     isHostPro: true,
+    coords: [52.3909553943508, 4.929309666406198],
   },
   {
     name: `Nice, cozy, warm big bed apartment`,
@@ -86,6 +89,7 @@ export const offers = [
     hostName: `Angelina`,
     hostAvatar: `img/avatar-angelina.jpg`,
     isHostPro: true,
+    coords: [52.3809553943508, 4.939309666406198],
   }
 ];
 
