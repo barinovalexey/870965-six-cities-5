@@ -12,10 +12,13 @@ export default class PlacesList extends PureComponent {
   }
 
   render() {
-    const {offers, onCardTitleClick} = this.props;
+    const {offers, onCardTitleClick, theme} = this.props;
 
     return (
-      <div className="cities__places-list places__list tabs__content">
+      <div className={theme === `cities` ?
+        `cities__places-list places__list tabs__content` :
+        `near-places__list places__list`
+      }>
         {offers.map((item, i) => <PlaceCard
           key={item.name + i}
           offer={item}
@@ -23,6 +26,7 @@ export default class PlacesList extends PureComponent {
             this.setState({activeCard: offer});
           }}
           onCardTitleClick = {onCardTitleClick}
+          theme = {theme}
         />)}
       </div>
     );
@@ -31,5 +35,6 @@ export default class PlacesList extends PureComponent {
 
 PlacesList.propTypes = {
   offers: PropTypes.array.isRequired,
-  onCardTitleClick: PropTypes.func.isRequired
+  onCardTitleClick: PropTypes.func.isRequired,
+  theme: PropTypes.string,
 };

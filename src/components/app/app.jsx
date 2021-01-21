@@ -21,6 +21,12 @@ export default class App extends PureComponent {
         <Property
           offer={this.state.currentOffer}
           offers = {offers}
+          onCardTitleClick = {(offer) => {
+            this.setState({
+              page: `property`,
+              currentOffer: offer
+            });
+          }}
         />
       );
     }

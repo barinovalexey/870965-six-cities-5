@@ -91,6 +91,7 @@ const Main = (props) => {
               <PlacesList
                 offers={offers}
                 onCardTitleClick ={onCardTitleClick}
+                theme = {`cities`}
               />
             </section>
             <div className="cities__right-section">
