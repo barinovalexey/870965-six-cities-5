@@ -2,19 +2,24 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const PlaceCard = (props) => {
-  const {offer, onCardHover, onCardTitleClick} = props;
+  const {offer, onCardHover, onCardTitleClick, theme} = props;
 
   return (
-    <article className="cities__place-card place-card" onMouseEnter={() => {
-      onCardHover(offer);
-    }}>
+    <article
+      className={theme === `cities` ?
+        `cities__place-card place-card` :
+        `near-places__card place-card`
+      }
+      onMouseEnter={() => {
+        onCardHover(offer);
+      }}>
       {offer.mark === `none` ? `` : (
         <div className="place-card__mark">
           <span>{offer.mark}</span>
         </div>
       )}
 
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={`${theme}__image-wrapper place-card__image-wrapper`}>
         <a href="#">
           <img className="place-card__image" src={offer.images[0]} width="260" height="200"
             alt="Place image"/>
@@ -77,7 +82,8 @@ PlaceCard.propTypes = {
     isHostPro: PropTypes.bool,
   }),
   onCardHover: PropTypes.func.isRequired,
-  onCardTitleClick: PropTypes.func.isRequired
+  onCardTitleClick: PropTypes.func.isRequired,
+  theme: PropTypes.string,
 };
 
 export default PlaceCard;

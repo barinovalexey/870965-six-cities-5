@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import PlacesList from "../places-list/places-list.jsx";
+import Leaflet from "../leaflet/leaflet.jsx";
 
 const Main = (props) => {
   const {offers, onCardTitleClick} = props;
@@ -90,10 +91,17 @@ const Main = (props) => {
               <PlacesList
                 offers={offers}
                 onCardTitleClick ={onCardTitleClick}
+                theme = {`cities`}
               />
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <section className="cities__map map">
+                <Leaflet
+                  offers={offers}
+                  city = {[52.38333, 4.9]}
+                  zoom = {12}
+                />
+              </section>
             </div>
           </div>
         </div>
