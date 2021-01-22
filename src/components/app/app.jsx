@@ -2,31 +2,27 @@ import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import Main from "../main/main.jsx";
 import Property from "../property/property.jsx";
+import {connect} from "react-redux";
+import {ActionCreator} from "../../reducer";
 
-export default class App extends PureComponent {
+class App extends PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
-      page: `main`,
-      currentOffer: null
+      currentOfferId: null
     };
   }
 
   render() {
-    const {offers} = this.props;
+    const {offers, currentOfferId, onCardTitleClick} = this.props;
 
-    if (this.state.page === `property`) {
+    if (currentOfferId) {
       return (
         <Property
-          offer={this.state.currentOffer}
+          offer={offers.find((item) => item.id === currentOfferId)}
           offers = {offers}
-          onCardTitleClick = {(offer) => {
-            this.setState({
-              page: `property`,
-              currentOffer: offer
-            });
-          }}
+          onCardTitleClick = {onCardTitleClick}
         />
       );
     }
@@ -34,17 +30,27 @@ export default class App extends PureComponent {
     return (
       <Main
         offers = {offers}
-        onCardTitleClick = {(offer) => {
-          this.setState({
-            page: `property`,
-            currentOffer: offer
-          });
-        }}
+        onCardTitleClick = {onCardTitleClick}
       />
     );
   }
 }
 
 App.propTypes = {
-  offers: PropTypes.array.isRequired
+  offers: PropTypes.array.isRequired,
+  currentOfferId: PropTypes.any,
+  onCardTitleClick: PropTypes.func.isRequired,
 };
+
+const mapStateToProps = (state) => ({
+  currentOfferId: state.currentOfferId,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onCardTitleClick(offer) {
+    dispatch(ActionCreator.setOfferId(offer));
+  },
+});
+
+export {App};
+export default connect(mapStateToProps, mapDispatchToProps)(App);

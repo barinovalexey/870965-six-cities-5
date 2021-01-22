@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+
 const PlaceCard = (props) => {
   const {offer, onCardHover, onCardTitleClick, theme} = props;
 

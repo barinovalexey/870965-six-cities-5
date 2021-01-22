@@ -1,5 +1,6 @@
 export const offers = [
   {
+    id: 10,
     name: `Beautiful &amp; luxurious apartment at great location`,
     type: `Apartment`,
     rating: `60`,
@@ -23,6 +24,7 @@ export const offers = [
     coords: [52.3909553943508, 4.85309666406198],
   },
   {
+    id: 11,
     name: `Wood and stone place`,
     type: `Private room`,
     rating: `80`,
@@ -46,6 +48,7 @@ export const offers = [
     coords: [52.369553943508, 4.85309666406198],
   },
   {
+    id: 12,
     name: `Canal View Prinsengracht`,
     type: `Apartment`,
     rating: `80`,
@@ -69,6 +72,7 @@ export const offers = [
     coords: [52.3909553943508, 4.929309666406198],
   },
   {
+    id: 13,
     name: `Nice, cozy, warm big bed apartment`,
     type: `Apartment`,
     rating: `100`,
