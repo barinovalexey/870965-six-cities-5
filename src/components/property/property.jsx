@@ -6,7 +6,7 @@ import Leaflet from "../leaflet/leaflet.jsx";
 import PlacesList from "../places-list/places-list.jsx";
 
 const Property = (props) => {
-  const {offer, offers, onCardTitleClick} = props;
+  const {offer, offers} = props;
   return (
     <div className="page">
       <header className="header">
@@ -138,7 +138,6 @@ const Property = (props) => {
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
             <PlacesList
               offers={offers.slice(0, 3)}
-              onCardTitleClick ={onCardTitleClick}
               theme = {`near-places`}
             />
           </section>
@@ -168,7 +167,6 @@ Property.propTypes = {
     coords: PropTypes.array.isRequired,
   }),
   offers: PropTypes.array.isRequired,
-  onCardTitleClick: PropTypes.func.isRequired,
 };
 
 export default Property;

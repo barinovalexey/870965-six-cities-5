@@ -1,11 +1,13 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import L from 'leaflet';
+import {connect} from "react-redux";
 
-export default class Leaflet extends PureComponent {
+class Leaflet extends PureComponent {
   constructor(props) {
     super(props);
     this.mapRef = React.createRef();
+    this.markers = [];
   }
 
   componentDidMount() {
@@ -31,9 +33,35 @@ export default class Leaflet extends PureComponent {
 
       offers.forEach((item) => {
         const offerCords = item.coords;
-        L
-          .marker(offerCords, {icon})
-          .addTo(this.map);
+        const marker = new L.Marker(offerCords, {icon});
+        this.markers.push(marker);
+        this.map.addLayer(marker);
+      });
+
+
+    }
+  }
+
+  componentDidUpdate() {
+    const {offers, city, zoom} = this.props;
+
+    if (this.map) {
+      this.map.setView(city, zoom);
+      this.markers.forEach((marker) => {
+        this.map.removeLayer(marker);
+      });
+      this.markers = [];
+
+      const icon = L.icon({
+        iconUrl: `img/pin.svg`,
+        iconSize: [30, 30]
+      });
+
+      offers.forEach((item) => {
+        const offerCords = item.coords;
+        const marker = new L.Marker(offerCords, {icon});
+        this.markers.push(marker);
+        this.map.addLayer(marker);
       });
     }
   }
@@ -50,4 +78,11 @@ Leaflet.propTypes = {
   city: PropTypes.array.isRequired,
   zoom: PropTypes.number.isRequired
 };
+
+const mapStateToProps = (state) => ({
+  offers: state.offers,
+});
+
+export {Leaflet};
+export default connect(mapStateToProps)(Leaflet);
 

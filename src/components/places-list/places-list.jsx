@@ -1,8 +1,9 @@
 import React, {PureComponent} from "react";
 import PlaceCard from "../place-card/place-card.jsx";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
 
-export default class PlacesList extends PureComponent {
+class PlacesList extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -12,7 +13,7 @@ export default class PlacesList extends PureComponent {
   }
 
   render() {
-    const {offers, onCardTitleClick, theme} = this.props;
+    const {offers, theme} = this.props;
 
     return (
       <div className={theme === `cities` ?
@@ -25,7 +26,6 @@ export default class PlacesList extends PureComponent {
           onCardHover={(offer) => {
             this.setState({activeCard: offer});
           }}
-          onCardTitleClick = {onCardTitleClick}
           theme = {theme}
         />)}
       </div>
@@ -35,6 +35,12 @@ export default class PlacesList extends PureComponent {
 
 PlacesList.propTypes = {
   offers: PropTypes.array.isRequired,
-  onCardTitleClick: PropTypes.func.isRequired,
   theme: PropTypes.string,
 };
+
+const mapStateToProps = (state) => ({
+  offers: state.offers,
+});
+
+export {PlacesList};
+export default connect(mapStateToProps)(PlacesList);

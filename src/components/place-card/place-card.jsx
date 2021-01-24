@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import {connect} from "react-redux";
+import {ActionCreator} from "../../reducer";
 
 const PlaceCard = (props) => {
   const {offer, onCardHover, onCardTitleClick, theme} = props;
@@ -87,4 +88,11 @@ PlaceCard.propTypes = {
   theme: PropTypes.string,
 };
 
-export default PlaceCard;
+const mapDispatchToProps = (dispatch) => ({
+  onCardTitleClick(offer) {
+    dispatch(ActionCreator.setOfferId(offer));
+  },
+});
+
+export {PlaceCard};
+export default connect(null, mapDispatchToProps)(PlaceCard);
