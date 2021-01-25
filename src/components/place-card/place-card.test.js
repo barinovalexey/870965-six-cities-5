@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import PlaceCard from "./place-card.jsx";
+import {PlaceCard} from "./place-card.jsx";
 
 const mockOffer = {
   name: `Beautiful &amp; luxurious apartment at great location`,
@@ -24,15 +24,30 @@ const mockOffer = {
   hostAvatar: `img/avatar-angelina.jpg`,
   isHostPro: true,
 };
-
-it(`Render App`, function () {
-  const tree = renderer
+describe(`PlaceCard component render correctly`, () => {
+  it(`Render PlaceCard in Main`, function () {
+    const tree = renderer
     .create(<PlaceCard
       offer={mockOffer}
       onCardHover={() => {}}
       onCardTitleClick={() => {}}
+      theme = {`cities`}
     />)
     .toJSON();
 
-  expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it(`Render PlaceCard in Property`, function () {
+    const tree = renderer
+      .create(<PlaceCard
+        offer={mockOffer}
+        onCardHover={() => {}}
+        onCardTitleClick={() => {}}
+        theme = {`near-places`}
+      />)
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
 });

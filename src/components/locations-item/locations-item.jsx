@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {preventDefault} from "leaflet/src/dom/DomEvent";
 import {ActionCreator} from "../../reducer";
 import {connect} from "react-redux";
 
@@ -9,7 +8,7 @@ const LocationsItem = (props) => {
   return (
     <li className="locations__item">
       <a onClick={(evt) => {
-        preventDefault(evt);
+        evt.preventDefault();
         onCityClick(cityName);
       }} className={`locations__item-link tabs__item ${cityName === currentCity && `tabs__item--active`}`}>
         <span>{cityName}</span>

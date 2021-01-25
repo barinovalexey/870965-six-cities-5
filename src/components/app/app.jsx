@@ -7,10 +7,6 @@ import {connect} from "react-redux";
 class App extends PureComponent {
   constructor(props) {
     super(props);
-
-    this.state = {
-      currentOfferId: null
-    };
   }
 
   render() {

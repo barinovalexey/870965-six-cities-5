@@ -83,7 +83,7 @@ PlaceCard.propTypes = {
     hostAvatar: PropTypes.string.isRequired,
     isHostPro: PropTypes.bool,
   }),
-  onCardHover: PropTypes.func.isRequired,
+  onCardHover: PropTypes.func,
   onCardTitleClick: PropTypes.func.isRequired,
   theme: PropTypes.string,
 };

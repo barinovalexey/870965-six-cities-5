@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Leaflet from "./leaflet.jsx";
+import {Leaflet} from "./leaflet.jsx";
 
 const offers = [
   {
