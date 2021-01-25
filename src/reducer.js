@@ -15,6 +15,7 @@ const initialState = {
   }),
   cities,
   activeSortingOption: `Popular`,
+  activeMapCard: null,
 };
 
 const ActionType = {
@@ -22,6 +23,7 @@ const ActionType = {
   GET_OFFERS: `GET_OFFERS`,
   SET_OFFER_ID: `SAVE_OFFER_ID`,
   SET_SORT: `SET_SORT`,
+  SET_ACTIVE_CARD: `SET_ACTIVE_CARD`,
 };
 
 const ActionCreator = {
@@ -39,6 +41,10 @@ const ActionCreator = {
   setSort: (sortType) => ({
     type: ActionType.SET_SORT,
     payload: sortType,
+  }),
+  setActiveCard: (card) => ({
+    type: ActionType.SET_ACTIVE_CARD,
+    payload: card,
   }),
 };
 
@@ -80,6 +86,9 @@ const reducer = (state = initialState, action) => {
     }
     case ActionType.SET_SORT: {
       return Object.assign({}, state, {activeSortingOption: action.payload});
+    }
+    case ActionType.SET_ACTIVE_CARD: {
+      return Object.assign({}, state, {activeMapCard: action.payload});
     }
   }
 

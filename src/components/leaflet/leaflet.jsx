@@ -10,6 +10,33 @@ class Leaflet extends PureComponent {
     this.markers = [];
   }
 
+  _addMarkersToMap(offers) {
+    const {activeMapCard, zoom} = this.props;
+    const icon = L.icon({
+      iconUrl: `img/pin.svg`,
+      iconSize: [30, 30]
+    });
+
+    const iconRed = L.icon({
+      iconUrl: `img/pin-active.svg`,
+      iconSize: [30, 30]
+    });
+
+    offers.forEach((item) => {
+      const offerCords = item.coords;
+      let marker;
+      if (item === activeMapCard) {
+        marker = new L.Marker(offerCords, {iconRed});
+        this.map.setView(item.coords, zoom);
+      } else {
+        marker = new L.Marker(offerCords, {icon});
+      }
+
+      this.markers.push(marker);
+      this.map.addLayer(marker);
+    });
+  }
+
   componentDidMount() {
     const {offers, city, zoom} = this.props;
     if (this.mapRef && this.mapRef.current) {
@@ -20,25 +47,12 @@ class Leaflet extends PureComponent {
         marker: true
       });
 
-      const icon = L.icon({
-        iconUrl: `img/pin.svg`,
-        iconSize: [30, 30]
-      });
-
-
       L.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
         attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
       })
         .addTo(this.map);
 
-      offers.forEach((item) => {
-        const offerCords = item.coords;
-        const marker = new L.Marker(offerCords, {icon});
-        this.markers.push(marker);
-        this.map.addLayer(marker);
-      });
-
-
+      this._addMarkersToMap(offers);
     }
   }
 
@@ -52,17 +66,7 @@ class Leaflet extends PureComponent {
       });
       this.markers = [];
 
-      const icon = L.icon({
-        iconUrl: `img/pin.svg`,
-        iconSize: [30, 30]
-      });
-
-      offers.forEach((item) => {
-        const offerCords = item.coords;
-        const marker = new L.Marker(offerCords, {icon});
-        this.markers.push(marker);
-        this.map.addLayer(marker);
-      });
+      this._addMarkersToMap(offers);
     }
   }
 
@@ -76,11 +80,13 @@ class Leaflet extends PureComponent {
 Leaflet.propTypes = {
   offers: PropTypes.array.isRequired,
   city: PropTypes.array.isRequired,
-  zoom: PropTypes.number.isRequired
+  zoom: PropTypes.number.isRequired,
+  activeMapCard: PropTypes.object,
 };
 
 const mapStateToProps = (state) => ({
   offers: state.offers,
+  activeMapCard: state.activeMapCard,
 });
 
 export {Leaflet};
