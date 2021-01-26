@@ -2,8 +2,30 @@ import React from "react";
 import renderer from "react-test-renderer";
 import Main from "./main";
 
+import {Provider} from "react-redux";
+import configureStore from "redux-mock-store";
+
+const cities = {};
+
+cities[`Amsterdam`] = {
+  name: `Amsterdam`,
+  coords: [52.38333, 4.9],
+  zoom: 13,
+};
+
+cities[`Dusseldorf`] = {
+  name: `Dusseldorf`,
+  coords: [51.225402, 6.776314],
+  zoom: 13,
+};
+
 const offers = [
   {
+    city: {
+      name: `Amsterdam`,
+      coords: [52.38333, 4.9],
+      zoom: 13,
+    },
     name: `Beautiful &amp; luxurious apartment at great location`,
     type: `Apartment`,
     rating: `60`,
@@ -26,6 +48,11 @@ const offers = [
     isHostPro: true,
   },
   {
+    city: {
+      name: `Amsterdam`,
+      coords: [52.38333, 4.9],
+      zoom: 13,
+    },
     name: `Wood and stone place`,
     type: `Private room`,
     rating: `80`,
@@ -49,12 +76,22 @@ const offers = [
   },
 ];
 
-it(`Render App`, function () {
+const mockStore = configureStore([]);
+
+it(`Render Main`, function () {
+  const store = mockStore({
+    currentCity: `Amsterdam`,
+    currentOfferId: null,
+    offers,
+    cities,
+  });
+
   const tree = renderer
-    .create(<Main
+    .create(<Provider store={store}><Main
       offers = {offers}
-      onCardTitleClick = {() => {}}
-    />)
+      currentCity = {`Amsterdam`}
+      cities = {cities}
+    /></Provider>)
     .toJSON();
 
   expect(tree).toMatchSnapshot();

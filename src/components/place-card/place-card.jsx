@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {ActionCreator} from "../../reducer";
 
 const PlaceCard = (props) => {
   const {offer, onCardHover, onCardTitleClick, theme} = props;
@@ -81,9 +83,16 @@ PlaceCard.propTypes = {
     hostAvatar: PropTypes.string.isRequired,
     isHostPro: PropTypes.bool,
   }),
-  onCardHover: PropTypes.func.isRequired,
+  onCardHover: PropTypes.func,
   onCardTitleClick: PropTypes.func.isRequired,
   theme: PropTypes.string,
 };
 
-export default PlaceCard;
+const mapDispatchToProps = (dispatch) => ({
+  onCardTitleClick(offer) {
+    dispatch(ActionCreator.setOfferId(offer));
+  },
+});
+
+export {PlaceCard};
+export default connect(null, mapDispatchToProps)(PlaceCard);

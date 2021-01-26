@@ -1,8 +1,10 @@
 import React, {PureComponent} from "react";
 import PlaceCard from "../place-card/place-card.jsx";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {ActionCreator} from "../../reducer";
 
-export default class PlacesList extends PureComponent {
+class PlacesList extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -11,8 +13,18 @@ export default class PlacesList extends PureComponent {
     };
   }
 
+  componentDidUpdate() {
+    const {onCardHover} = this.props;
+    onCardHover(null);
+  }
+
+  componentWillUnmount() {
+    const {onCardHover} = this.props;
+    onCardHover(null);
+  }
+
   render() {
-    const {offers, onCardTitleClick, theme} = this.props;
+    const {offers, theme, onCardHover} = this.props;
 
     return (
       <div className={theme === `cities` ?
@@ -22,11 +34,7 @@ export default class PlacesList extends PureComponent {
         {offers.map((item, i) => <PlaceCard
           key={item.name + i}
           offer={item}
-          onCardHover={(offer) => {
-            this.setState({activeCard: offer});
-          }}
-          onCardTitleClick = {onCardTitleClick}
-          theme = {theme}
+          onCardHover={onCardHover}
         />)}
       </div>
     );
@@ -35,6 +43,19 @@ export default class PlacesList extends PureComponent {
 
 PlacesList.propTypes = {
   offers: PropTypes.array.isRequired,
-  onCardTitleClick: PropTypes.func.isRequired,
   theme: PropTypes.string,
+  onCardHover: PropTypes.func.isRequired,
 };
+
+const mapStateToProps = (state) => ({
+  offers: state.offers,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onCardHover(card) {
+    dispatch(ActionCreator.setActiveCard(card));
+  },
+});
+
+export {PlacesList};
+export default connect(mapStateToProps, mapDispatchToProps)(PlacesList);

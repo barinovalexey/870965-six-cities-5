@@ -1,6 +1,8 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import PlacesList from "../places-list/places-list.jsx";
+import PlacesList from "../place-card/place-card";
+import {Provider} from "react-redux";
+import configureStore from "redux-mock-store";
 
 const offers = [
   {
@@ -49,13 +51,32 @@ const offers = [
   },
 ];
 
-it(`Render App`, function () {
-  const tree = renderer
-    .create(<PlacesList
-      offers={offers}
-      onCardTitleClick = {() => {}}
-    />)
+const mockStore = configureStore([]);
+
+describe(`PlaceCard component render correctly`, () => {
+
+  const store = mockStore({
+    offers,
+    onCardTitleClick: ()=>{},
+  });
+
+  it(`Render PlacesList in Main`, function () {
+    const tree = renderer
+    .create(<Provider store={store}><PlacesList
+      theme = {`cities`}
+    /></Provider>)
     .toJSON();
 
-  expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it(`Render PlacesList in Property`, function () {
+    const tree = renderer
+      .create(<Provider store={store}><PlacesList
+        theme = {`near-places`}
+      /></Provider>)
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
 });
