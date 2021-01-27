@@ -1,13 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import PlacesList from "../places-list/places-list.jsx";
 import Leaflet from "../leaflet/leaflet.jsx";
 import {connect} from "react-redux";
 import Locations from "../locations/locations.jsx";
-import PlacesSorting from "../places-sorting/places-sorting.jsx";
+import Places from "../places/places.jsx";
 
 const Main = (props) => {
-  const {offers, currentCity, cities} = props;
+  const {currentCity, cities} = props;
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -40,14 +39,7 @@ const Main = (props) => {
         </div>
         <div className="cities">
           <div className="cities__places-container container">
-            <section className="cities__places places">
-              <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{offers.length} places to stay in {currentCity}</b>
-              <PlacesSorting/>
-              <PlacesList
-                theme = {`cities`}
-              />
-            </section>
+            <Places />
             <div className="cities__right-section">
               <section className="cities__map map">
                 <Leaflet
@@ -64,13 +56,11 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  offers: PropTypes.array.isRequired,
   currentCity: PropTypes.string.isRequired,
   cities: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  offers: state.offers,
   currentCity: state.currentCity,
   cities: state.cities,
 });

@@ -5,14 +5,6 @@ import {connect} from "react-redux";
 import {ActionCreator} from "../../reducer";
 
 class PlacesList extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      activeCard: null,
-    };
-  }
-
   componentDidUpdate() {
     const {onCardHover} = this.props;
     onCardHover(null);

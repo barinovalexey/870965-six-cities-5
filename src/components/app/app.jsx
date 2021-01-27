@@ -10,13 +10,12 @@ class App extends PureComponent {
   }
 
   render() {
-    const {offers, currentOfferId} = this.props;
+    const {currentOfferId} = this.props;
 
     if (currentOfferId) {
       return (
         <Property
-          offer={offers.find((item) => item.id === currentOfferId)}
-          offers = {offers}
+          offerId={currentOfferId}
         />
       );
     }
@@ -28,13 +27,11 @@ class App extends PureComponent {
 }
 
 App.propTypes = {
-  offers: PropTypes.array.isRequired,
   currentOfferId: PropTypes.any,
 };
 
 const mapStateToProps = (state) => ({
   currentOfferId: state.currentOfferId,
-  offers: state.offers,
 });
 
 export {App};

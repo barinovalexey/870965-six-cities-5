@@ -5,8 +5,11 @@ import reviews from "../../mocks/reviews";
 import Leaflet from "../leaflet/leaflet.jsx";
 import PlacesList from "../places-list/places-list.jsx";
 
+import {connect} from "react-redux";
+
 const Property = (props) => {
-  const {offer, offers} = props;
+  const {offerId, offers} = props;
+  const offer = offers.find((item) => item.id === offerId);
   return (
     <div className="page">
       <header className="header">
@@ -148,25 +151,13 @@ const Property = (props) => {
 };
 
 Property.propTypes = {
-  offer: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    rating: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
-    priceText: PropTypes.string.isRequired,
-    images: PropTypes.array.isRequired,
-    mark: PropTypes.string.isRequired,
-    inBookmarks: PropTypes.bool,
-    bedrooms: PropTypes.string.isRequired,
-    adults: PropTypes.string.isRequired,
-    inside: PropTypes.array.isRequired,
-    description: PropTypes.string.isRequired,
-    hostName: PropTypes.string.isRequired,
-    hostAvatar: PropTypes.string.isRequired,
-    isHostPro: PropTypes.bool,
-    coords: PropTypes.array.isRequired,
-  }),
+  offerId: PropTypes.number.isRequired,
   offers: PropTypes.array.isRequired,
 };
 
-export default Property;
+const mapStateToProps = (state) => ({
+  offers: state.offers,
+});
+
+export {Property};
+export default connect(mapStateToProps)(Property);
