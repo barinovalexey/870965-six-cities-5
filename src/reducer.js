@@ -16,6 +16,7 @@ const initialState = {
   cities,
   activeSortingOption: `Popular`,
   activeMapCard: null,
+  offersCount: offers.length,
 };
 
 const ActionType = {
@@ -79,7 +80,7 @@ const reducer = (state = initialState, action) => {
         }
       }
 
-      return Object.assign({}, state, {offers: currentCityOffers});
+      return Object.assign({}, state, {offers: currentCityOffers, offersCount: currentCityOffers.length});
     }
     case ActionType.SET_OFFER_ID: {
       return Object.assign({}, state, {currentOfferId: action.payload});
