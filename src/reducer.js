@@ -10,6 +10,7 @@ const initialState = {
   activeSortingOption: `Popular`,
   activeMapCard: null,
   offersCount: 0,
+  isAuthRequired: false,
 };
 
 const ActionType = {
@@ -20,6 +21,7 @@ const ActionType = {
   SET_CITIES: `SET_CITIES`,
   SET_ACTIVE_CARD: `SET_ACTIVE_CARD`,
   GET_OFFERS: `GET_OFFERS`,
+  SET_AUTH: `SET_AUTH`,
 };
 
 const ActionCreator = {
@@ -48,6 +50,10 @@ const ActionCreator = {
   getOffers: (offerss) => ({
     type: ActionType.GET_OFFERS,
     payload: offerss,
+  }),
+  setAuth: (authStatus) => ({
+    type: ActionType.SET_AUTH,
+    payload: authStatus,
   }),
 };
 
@@ -107,6 +113,9 @@ const reducer = (state = initialState, action) => {
     }
     case ActionType.SET_OFFER_ID: {
       return Object.assign({}, state, {currentOfferId: action.payload});
+    }
+    case ActionType.SET_AUTH: {
+      return Object.assign({}, state, {isAuthRequired: action.payload});
     }
     case ActionType.SET_SORT: {
       return Object.assign({}, state, {activeSortingOption: action.payload});
