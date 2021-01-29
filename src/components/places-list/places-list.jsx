@@ -23,8 +23,8 @@ class PlacesList extends PureComponent {
         `cities__places-list places__list tabs__content` :
         `near-places__list places__list`
       }>
-        {offers.map((item, i) => <PlaceCard
-          key={item.name + i}
+        {offers.map((item) => <PlaceCard
+          key={item.id}
           offer={item}
           onCardHover={onCardHover}
         />)}

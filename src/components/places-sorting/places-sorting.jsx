@@ -45,7 +45,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   onSortingItemClick(sort) {
     dispatch(ActionCreator.setSort(sort));
-    dispatch(ActionCreator.getOffers());
+    dispatch(ActionCreator.setOffers());
   },
 });
 
