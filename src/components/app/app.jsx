@@ -4,6 +4,8 @@ import Main from "../main/main.jsx";
 import Property from "../property/property.jsx";
 import {connect} from "react-redux";
 import SignIn from "../sign-in/sign-in.jsx";
+import {Operation} from "../../reducer";
+import User from "../user/user.jsx";
 
 class App extends PureComponent {
   constructor(props) {
@@ -11,7 +13,7 @@ class App extends PureComponent {
   }
 
   render() {
-    const {currentOfferId, isAuthRequired} = this.props;
+    const {currentOfferId, authStatus, login} = this.props;
 
     if (currentOfferId) {
       return (
@@ -32,13 +34,7 @@ class App extends PureComponent {
             </div>
             <nav className="header__nav">
               <ul className="header__nav-list">
-                <li className="header__nav-item user">
-                  <a className="header__nav-link header__nav-link--profile" href="#">
-                    <div className="header__avatar-wrapper user__avatar-wrapper">
-                    </div>
-                    <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
-                  </a>
-                </li>
+                <User/>
               </ul>
             </nav>
           </div>
@@ -46,14 +42,14 @@ class App extends PureComponent {
       </header>
     );
 
-    return isAuthRequired ?
+    return authStatus ?
       (
         <Main>
           {header}
         </Main>
       ) :
       (
-        <SignIn>
+        <SignIn onSubmit={login}>
           {header}
         </SignIn>
       );
@@ -62,13 +58,20 @@ class App extends PureComponent {
 
 App.propTypes = {
   currentOfferId: PropTypes.any,
-  isAuthRequired: PropTypes.bool,
+  authStatus: PropTypes.bool,
+  login: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({
   currentOfferId: state.currentOfferId,
-  isAuthRequired: state.isAuthRequired,
+  authStatus: state.authStatus,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  login(authData) {
+    dispatch(Operation.login(authData));
+  },
 });
 
 export {App};
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

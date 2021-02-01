@@ -10,7 +10,8 @@ const initialState = {
   activeSortingOption: `Popular`,
   activeMapCard: null,
   offersCount: 0,
-  isAuthRequired: false,
+  authStatus: false,
+  user: {},
 };
 
 const ActionType = {
@@ -22,6 +23,7 @@ const ActionType = {
   SET_ACTIVE_CARD: `SET_ACTIVE_CARD`,
   GET_OFFERS: `GET_OFFERS`,
   SET_AUTH: `SET_AUTH`,
+  SET_USER_DATA: `SET_USER_DATA`,
 };
 
 const ActionCreator = {
@@ -47,13 +49,17 @@ const ActionCreator = {
     type: ActionType.SET_ACTIVE_CARD,
     payload: card,
   }),
-  getOffers: (offerss) => ({
+  getOffers: (offers) => ({
     type: ActionType.GET_OFFERS,
-    payload: offerss,
+    payload: offers,
   }),
   setAuth: (authStatus) => ({
     type: ActionType.SET_AUTH,
     payload: authStatus,
+  }),
+  setUserData: (userData) => ({
+    type: ActionType.SET_USER_DATA,
+    payload: userData,
   }),
 };
 
@@ -65,6 +71,27 @@ const Operation = {
         dispatch(ActionCreator.changeCity());
         dispatch(ActionCreator.setCities());
         dispatch(ActionCreator.setOffers());
+      });
+  },
+  checkAuth: () => (dispatch, getState, api) => {
+    return api.get(`/login`)
+      .then((response) => {
+        dispatch(ActionCreator.setAuth(true));
+        dispatch(ActionCreator.setUserData(response.data));
+      })
+      .catch((err) => {
+        throw err;
+      });
+  },
+
+  login: (authData) => (dispatch, getState, api) => {
+    return api.post(`/login`, {
+      email: authData.login,
+      password: authData.password,
+    })
+      .then((response) => {
+        dispatch(ActionCreator.setAuth(true));
+        dispatch(ActionCreator.setUserData(response.data));
       });
   },
 };
@@ -115,7 +142,10 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {currentOfferId: action.payload});
     }
     case ActionType.SET_AUTH: {
-      return Object.assign({}, state, {isAuthRequired: action.payload});
+      return Object.assign({}, state, {authStatus: action.payload});
+    }
+    case ActionType.SET_USER_DATA: {
+      return Object.assign({}, state, {user: action.payload});
     }
     case ActionType.SET_SORT: {
       return Object.assign({}, state, {activeSortingOption: action.payload});
