@@ -1,5 +1,6 @@
 import {SortType} from "./const";
 import {parseOffers} from "./adapters/offers";
+import {parseReviews} from "./adapters/reviews";
 
 const initialState = {
   offersFromServer: [],
@@ -12,6 +13,7 @@ const initialState = {
   offersCount: 0,
   authStatus: false,
   user: {},
+  comments: [],
 };
 
 const ActionType = {
@@ -24,6 +26,7 @@ const ActionType = {
   GET_OFFERS: `GET_OFFERS`,
   SET_AUTH: `SET_AUTH`,
   SET_USER_DATA: `SET_USER_DATA`,
+  GET_COMMENTS: `GET_COMMENTS`,
 };
 
 const ActionCreator = {
@@ -37,6 +40,10 @@ const ActionCreator = {
   }),
   setOffers: () => ({
     type: ActionType.SET_OFFERS,
+  }),
+  getComments: (comments) => ({
+    type: ActionType.GET_COMMENTS,
+    payload: comments,
   }),
   setCities: () => ({
     type: ActionType.SET_CITIES,
@@ -93,6 +100,20 @@ const Operation = {
         dispatch(ActionCreator.setAuth(true));
         dispatch(ActionCreator.setUserData(response.data));
       });
+  },
+  getComments: (id) => (dispatch, toState, api) => {
+    return api.get(`/comments/${id}`)
+      .then((response) => {
+        dispatch(ActionCreator.getComments(parseReviews(response.data)));
+      });
+  },
+  postReview: (offerId, review, onSuccess, onError) => (dispatch, getState, api) => {
+    return api.post(`/comments/${offerId}`, review)
+      .then((response) => {
+        dispatch(ActionCreator.getComments(parseReviews(response.data)));
+        onSuccess();
+      })
+      .catch(onError);
   },
 };
 
@@ -155,6 +176,9 @@ const reducer = (state = initialState, action) => {
     }
     case ActionType.GET_OFFERS: {
       return Object.assign({}, state, {offersFromServer: action.payload});
+    }
+    case ActionType.GET_COMMENTS: {
+      return Object.assign({}, state, {comments: action.payload});
     }
   }
 

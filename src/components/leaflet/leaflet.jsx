@@ -85,7 +85,6 @@ Leaflet.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  offers: state.offers,
   activeMapCard: state.activeMapCard,
 });
 

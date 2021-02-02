@@ -37,7 +37,7 @@ const ReviewsItem = (props) => {
 
 ReviewsItem.propTypes = {
   review: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     userName: PropTypes.string.isRequired,
     userAvatar: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,

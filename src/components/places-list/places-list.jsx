@@ -1,8 +1,6 @@
 import React, {PureComponent} from "react";
 import PlaceCard from "../place-card/place-card.jsx";
 import PropTypes from "prop-types";
-import {connect} from "react-redux";
-import {ActionCreator} from "../../reducer";
 
 class PlacesList extends PureComponent {
   componentDidUpdate() {
@@ -39,15 +37,4 @@ PlacesList.propTypes = {
   onCardHover: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  offers: state.offers,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  onCardHover(card) {
-    dispatch(ActionCreator.setActiveCard(card));
-  },
-});
-
-export {PlacesList};
-export default connect(mapStateToProps, mapDispatchToProps)(PlacesList);
+export default PlacesList;
