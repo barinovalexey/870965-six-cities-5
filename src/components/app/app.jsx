@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import SignIn from "../sign-in/sign-in.jsx";
 import {Operation} from "../../reducer";
 import User from "../user/user.jsx";
+import {Route, Switch} from "react-router-dom";
 
 class App extends PureComponent {
   constructor(props) {
@@ -13,15 +14,7 @@ class App extends PureComponent {
   }
 
   render() {
-    const {currentOfferId, authStatus, login} = this.props;
-
-    if (currentOfferId) {
-      return (
-        <Property
-          offerId={currentOfferId}
-        />
-      );
-    }
+    const {login} = this.props;
 
     const header = (
       <header className="header">
@@ -42,17 +35,22 @@ class App extends PureComponent {
       </header>
     );
 
-    return authStatus ?
-      (
-        <Main>
-          {header}
-        </Main>
-      ) :
-      (
-        <SignIn onSubmit={login}>
-          {header}
-        </SignIn>
-      );
+    return (
+      <Switch>
+        <Route path="/" exact>
+          <Main>
+            {header}
+          </Main>
+        </Route>
+        <Route path="/login" exact>
+          <SignIn onSubmit={login}>
+            {header}
+          </SignIn>
+        </Route>
+        <Route path="/property/:offerId" exact component={Property}>
+        </Route>
+      </Switch>
+    );
   }
 }
 

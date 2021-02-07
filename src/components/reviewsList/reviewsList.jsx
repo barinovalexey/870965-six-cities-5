@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import ReviewsForm from "../reviewsForm/reviewsForm.jsx";
 
 const ReviewsList = (props) => {
-  const {reviews, authStatus} = props;
+  const {offerId, reviews, authStatus} = props;
 
   return (
     <section className="property__reviews reviews">
@@ -18,14 +18,15 @@ const ReviewsList = (props) => {
           />
         )}
       </ul>
-      {authStatus && <ReviewsForm onSubmit={() => {}}/>}
+      {authStatus && <ReviewsForm offerId={offerId} onSubmit={() => {}}/>}
     </section>
   );
 };
 
 ReviewsList.propTypes = {
   reviews: PropTypes.array.isRequired,
-  authStatus: PropTypes.bool.isRequired
+  authStatus: PropTypes.bool.isRequired,
+  offerId: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({

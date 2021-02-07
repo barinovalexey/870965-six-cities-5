@@ -7,6 +7,9 @@ import {reducer, Operation, ActionCreator} from "./reducer";
 import thunk from "redux-thunk";
 import {createAPI} from "./api";
 import {compose} from "recompose";
+import {BrowserRouter} from "react-router-dom";
+import withOffersLoader from "./hocs/with-offers-loader/with-offers-loader.jsx";
+
 
 const onUnauthorized = () => {
   store.dispatch(ActionCreator.setAuth(false));
@@ -23,12 +26,15 @@ const store = createStore(
 
 );
 
-store.dispatch(Operation.getOffers());
 store.dispatch(Operation.checkAuth());
+
+const AppWithOffersLoader = withOffersLoader(App);
 
 ReactDOM.render(
     <Provider store={store}>
-      <App/>
+      <BrowserRouter>
+        <AppWithOffersLoader/>
+      </BrowserRouter>
     </Provider>,
     document.querySelector(`#root`)
 );

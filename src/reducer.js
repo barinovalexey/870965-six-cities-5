@@ -71,13 +71,14 @@ const ActionCreator = {
 };
 
 const Operation = {
-  getOffers: () => (dispatch, toState, api) => {
+  getOffers: (setOfferLoad) => (dispatch, toState, api) => {
     return api.get(`/hotels`)
       .then((response) => {
         dispatch(ActionCreator.getOffers(parseOffers(response.data)));
         dispatch(ActionCreator.changeCity());
         dispatch(ActionCreator.setCities());
         dispatch(ActionCreator.setOffers());
+        setOfferLoad();
       });
   },
   checkAuth: () => (dispatch, getState, api) => {

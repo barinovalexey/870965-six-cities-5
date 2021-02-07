@@ -87,7 +87,7 @@ class ReviewsForm extends PureComponent {
 
 ReviewsForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  currentOfferId: PropTypes.number.isRequired,
+  offerId: PropTypes.string.isRequired,
   rating: PropTypes.number,
   comment: PropTypes.string,
   formDisabled: PropTypes.bool,
@@ -97,8 +97,7 @@ ReviewsForm.propTypes = {
   handleSubmit: PropTypes.func,
 };
 
-const mapStateToProps = (state) => ({
-  currentOfferId: state.currentOfferId,
+const mapStateToProps = () => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({

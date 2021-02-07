@@ -24,7 +24,7 @@ const withReviewForm = (Component) => {
     }
 
     _handleSubmit(evt) {
-      const {onSubmit, currentOfferId} = this.props;
+      const {onSubmit, offerId} = this.props;
 
       evt.preventDefault();
       this.setState({formDisabled: true});
@@ -32,7 +32,7 @@ const withReviewForm = (Component) => {
         rating: this.state.rating,
         comment: this.state.comment,
       };
-      onSubmit(currentOfferId, comment, this._onSuccess, this._onError);
+      onSubmit(offerId, comment, this._onSuccess, this._onError);
     }
 
     _onSuccess() {
@@ -65,7 +65,7 @@ const withReviewForm = (Component) => {
 
   WithReviewForm.propTypes = {
     onSubmit: PropTypes.func.isRequired,
-    currentOfferId: PropTypes.number.isRequired,
+    offerId: PropTypes.string.isRequired,
   };
 
   return WithReviewForm;

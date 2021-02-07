@@ -13,12 +13,12 @@ class Leaflet extends PureComponent {
   _addMarkersToMap(offers) {
     const {activeMapCard, zoom} = this.props;
     const icon = L.icon({
-      iconUrl: `img/pin.svg`,
+      iconUrl: `/img/pin.svg`,
       iconSize: [30, 30]
     });
 
     const iconRed = L.icon({
-      iconUrl: `img/pin-active.svg`,
+      iconUrl: `/img/pin-active.svg`,
       iconSize: [30, 30]
     });
 

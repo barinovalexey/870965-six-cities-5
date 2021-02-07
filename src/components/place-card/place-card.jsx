@@ -2,9 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../reducer";
+import {Link} from "react-router-dom";
 
 const PlaceCard = (props) => {
-  const {offer, onCardHover, onCardTitleClick, theme} = props;
+  const {offer, onCardHover, theme} = props;
 
   return (
     <article
@@ -54,10 +55,7 @@ const PlaceCard = (props) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#" onClick={(evt) => {
-            evt.preventDefault();
-            onCardTitleClick(offer);
-          }}>{offer.name}</a>
+          <Link to={`/property/${offer.id}`}>{offer.name}</Link>
         </h2>
         <p className="place-card__type">{offer.type}</p>
       </div>
@@ -67,6 +65,7 @@ const PlaceCard = (props) => {
 
 PlaceCard.propTypes = {
   offer: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     rating: PropTypes.string.isRequired,
