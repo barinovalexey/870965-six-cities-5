@@ -18,7 +18,6 @@ const withOffersLoader = (Component) => {
     }
 
     render() {
-      this._loadOffers();
       if (this.state.isOfferLoad) {
         return (
           <Component
@@ -26,6 +25,7 @@ const withOffersLoader = (Component) => {
           />
         );
       } else {
+        this._loadOffers();
         return null;
       }
 

@@ -10,7 +10,7 @@ import {ActionCreator} from "../../reducer";
 const PlacesSortingWithToggle = withToggle(PlacesSorting);
 
 const Places = (props) => {
-  const {offers, currentCity, cities, onCardHover} = props;
+  const {offers, currentCity, cities, onCardHover, history} = props;
   return (
     <Fragment>
       <section className="cities__places places">
@@ -21,6 +21,7 @@ const Places = (props) => {
           offers = {offers}
           theme = {`cities`}
           onCardHover = {onCardHover}
+          history = {history}
         />
       </section>
       <div className="cities__right-section">
@@ -41,6 +42,7 @@ Places.propTypes = {
   currentCity: PropTypes.string.isRequired,
   cities: PropTypes.object.isRequired,
   onCardHover: PropTypes.func.isRequired,
+  history: PropTypes.object,
 };
 
 const mapStateToProps = (state) => ({

@@ -9,6 +9,7 @@ import {createAPI} from "./api";
 import {compose} from "recompose";
 import {BrowserRouter} from "react-router-dom";
 import withOffersLoader from "./hocs/with-offers-loader/with-offers-loader.jsx";
+import ScrollToTop from "./components/scroll-to-top/scroll-to-top.jsx";
 
 
 const onUnauthorized = () => {
@@ -33,6 +34,7 @@ const AppWithOffersLoader = withOffersLoader(App);
 ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
+        <ScrollToTop />
         <AppWithOffersLoader/>
       </BrowserRouter>
     </Provider>,

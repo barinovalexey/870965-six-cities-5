@@ -1,17 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {ActionCreator} from "../../reducer";
+import {Operation} from "../../reducer";
 import {Link} from "react-router-dom";
 
 const PlaceCard = (props) => {
-  const {offer, onCardHover, theme} = props;
+  const {offer, onCardHover, theme, changeFavorite, authStatus, history} = props;
 
   return (
     <article
       className={theme === `cities` ?
         `cities__place-card place-card` :
-        `near-places__card place-card`
+        `${theme}__card place-card`
       }
       onMouseEnter={() => {
         onCardHover(offer);
@@ -24,20 +24,30 @@ const PlaceCard = (props) => {
 
       <div className={`${theme}__image-wrapper place-card__image-wrapper`}>
         <a href="#">
-          <img className="place-card__image" src={offer.images[0]} width="260" height="200"
-            alt="Place image"/>
+          <img
+            className={`place-card__image`}
+            src={offer.images[0]}
+            width={theme === `favorites` ? `150` : `260`}
+            height={theme === `favorites` ? `110` : `200`}
+            alt="Place image"
+          />
         </a>
       </div>
-      <div className="place-card__info">
+      <div className={`${theme === `favorites` ? `favorites__card-info ` : ``}place-card__info`}>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">&euro;{offer.price}</b>
             <span className="place-card__price-text">&#47;&nbsp;{offer.priceText}</span>
           </div>
           <button
+            onClick={() => {
+              return authStatus ?
+                changeFavorite(offer) :
+                history.push(`/login`);
+            }}
             className={
               `place-card__bookmark-button
-                    ${offer.inBookmarks && `place-card__bookmark-button--active `}
+                    ${offer.inBookmarks ? `place-card__bookmark-button--active ` : ``}
                     button`
             }
             type="button"
@@ -80,15 +90,21 @@ PlaceCard.propTypes = {
     description: PropTypes.string.isRequired,
   }),
   onCardHover: PropTypes.func,
-  onCardTitleClick: PropTypes.func.isRequired,
+  changeFavorite: PropTypes.func.isRequired,
   theme: PropTypes.string,
+  authStatus: PropTypes.bool,
+  history: PropTypes.object,
 };
 
+const mapStateToProps = (state) => ({
+  authStatus: state.authStatus,
+});
+
 const mapDispatchToProps = (dispatch) => ({
-  onCardTitleClick(offer) {
-    dispatch(ActionCreator.setOfferId(offer));
+  changeFavorite(offer) {
+    dispatch(Operation.changeFavorite(offer));
   },
 });
 
 export {PlaceCard};
-export default connect(null, mapDispatchToProps)(PlaceCard);
+export default connect(mapStateToProps, mapDispatchToProps)(PlaceCard);

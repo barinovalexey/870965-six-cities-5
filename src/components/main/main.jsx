@@ -6,7 +6,7 @@ import Places from "../places/places.jsx";
 import PlacesEmpty from "../places-empty/places-empty.jsx";
 
 const Main = (props) => {
-  const {currentCity, cities, offersCount, children} = props;
+  const {currentCity, cities, offersCount, children, history} = props;
   return (
     <div className="page page--gray page--main">
       {children}
@@ -17,7 +17,7 @@ const Main = (props) => {
         </div>
         <div className="cities">
           <div className="cities__places-container container">
-            {offersCount ? <Places /> : <PlacesEmpty/>}
+            {offersCount ? <Places history={history} /> : <PlacesEmpty/>}
           </div>
         </div>
       </main>
@@ -29,6 +29,8 @@ Main.propTypes = {
   currentCity: PropTypes.string.isRequired,
   cities: PropTypes.object.isRequired,
   offersCount: PropTypes.number.isRequired,
+  children: PropTypes.object,
+  history: PropTypes.object,
 };
 
 const mapStateToProps = (state) => ({

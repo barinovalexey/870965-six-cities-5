@@ -26,7 +26,7 @@ class Property extends PureComponent {
   }
 
   render() {
-    const {match, offers, onCardHover} = this.props;
+    const {match, offers, onCardHover, changeFavorite, authStatus, history} = this.props;
     const offerId = match.params.offerId;
     const offer = offers.find((item) => item.id.toString() === offerId.toString());
     return (
@@ -73,9 +73,14 @@ class Property extends PureComponent {
                     {offer.name}
                   </h1>
                   <button
+                    onClick={() => {
+                      return authStatus ?
+                        changeFavorite(offer) :
+                        history.push(`/login`);
+                    }}
                     className={
                       `property__bookmark-button
-                    ${offer.inBookmarks && `property__bookmark-button--active `}
+                    ${offer.inBookmarks ? `property__bookmark-button--active ` : ``}
                     button`
                     }
                     type="button"
@@ -154,6 +159,7 @@ class Property extends PureComponent {
                 offers={offers.slice(0, 3)}
                 theme = {`near-places`}
                 onCardHover = {onCardHover}
+                history = {history}
               />
             </section>
           </div>
@@ -168,10 +174,15 @@ Property.propTypes = {
   offers: PropTypes.array.isRequired,
   onCardHover: PropTypes.func.isRequired,
   loadComments: PropTypes.func,
+  changeFavorite: PropTypes.func.isRequired,
+  theme: PropTypes.string,
+  authStatus: PropTypes.bool,
+  history: PropTypes.object,
 };
 
 const mapStateToProps = (state) => ({
-  offers: state.offers,
+  offers: state.offersFromServer,
+  authStatus: state.authStatus,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -180,6 +191,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   loadComments(id) {
     dispatch(Operation.getComments(id));
+  },
+  changeFavorite(offer) {
+    dispatch(Operation.changeFavorite(offer));
   },
 });
 

@@ -1,5 +1,5 @@
 import {SortType} from "./const";
-import {parseOffers} from "./adapters/offers";
+import {parseOffers, parseOfferTo} from "./adapters/offers";
 import {parseReviews} from "./adapters/reviews";
 
 const initialState = {
@@ -27,6 +27,7 @@ const ActionType = {
   SET_AUTH: `SET_AUTH`,
   SET_USER_DATA: `SET_USER_DATA`,
   GET_COMMENTS: `GET_COMMENTS`,
+  CHANGE_FAVORITE: `CHANGE_FAVORITE`,
 };
 
 const ActionCreator = {
@@ -67,6 +68,10 @@ const ActionCreator = {
   setUserData: (userData) => ({
     type: ActionType.SET_USER_DATA,
     payload: userData,
+  }),
+  changeFavorite: (offerId) => ({
+    type: ActionType.CHANGE_FAVORITE,
+    payload: offerId,
   }),
 };
 
@@ -116,6 +121,15 @@ const Operation = {
       })
       .catch(onError);
   },
+  changeFavorite: (offer) => (dispatch, getState, api) => {
+    const status = offer.inBookmarks ? 0 : 1;
+
+    return api.post(`/favorite/${offer.id}/${status}`, parseOfferTo(offer))
+      .then(() => {
+        dispatch(ActionCreator.changeFavorite(offer));
+        dispatch(ActionCreator.setOffers());
+      });
+  },
 };
 
 const reducer = (state = initialState, action) => {
@@ -124,7 +138,7 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {currentCity: action.payload || state.offersFromServer[0].city.name});
     }
     case ActionType.SET_OFFERS: {
-      const currentCityOffers = state.offersFromServer.filter((item) => {
+      const currentCityOffers = state.offersFromServer.slice().filter((item) => {
         return item.city.name === state.currentCity;
       });
 
@@ -155,7 +169,7 @@ const reducer = (state = initialState, action) => {
       const cities = {};
 
       state.offersFromServer.forEach((item) => {
-        cities[item.city.name] = item.city;
+        cities[item.city.name] = Object.assign({}, item.city);
       });
 
       return Object.assign({}, state, {cities});
@@ -180,6 +194,14 @@ const reducer = (state = initialState, action) => {
     }
     case ActionType.GET_COMMENTS: {
       return Object.assign({}, state, {comments: action.payload});
+    }
+    case ActionType.CHANGE_FAVORITE: {
+      const updatedOffers = state.offersFromServer.map((it) => {
+        return it.id === action.payload.id ?
+          Object.assign({}, it, {inBookmarks: !it.inBookmarks}) :
+          it;
+      });
+      return Object.assign({}, state, {offersFromServer: updatedOffers});
     }
   }
 

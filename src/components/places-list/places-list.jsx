@@ -14,7 +14,7 @@ class PlacesList extends PureComponent {
   }
 
   render() {
-    const {offers, theme, onCardHover} = this.props;
+    const {offers, theme, onCardHover, history} = this.props;
 
     return (
       <div className={theme === `cities` ?
@@ -22,9 +22,11 @@ class PlacesList extends PureComponent {
         `near-places__list places__list`
       }>
         {offers.map((item) => <PlaceCard
+          theme = {theme}
           key={item.id}
           offer={item}
           onCardHover={onCardHover}
+          history={history}
         />)}
       </div>
     );
@@ -35,6 +37,7 @@ PlacesList.propTypes = {
   offers: PropTypes.array.isRequired,
   theme: PropTypes.string,
   onCardHover: PropTypes.func.isRequired,
+  history: PropTypes.object,
 };
 
 export default PlacesList;

@@ -1,7 +1,8 @@
 import React, {PureComponent, createRef} from "react";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
 
-export default class SignIn extends PureComponent {
+class SignIn extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -23,7 +24,11 @@ export default class SignIn extends PureComponent {
   }
 
   render() {
-    const {children} = this.props;
+    const {children, authStatus, history} = this.props;
+
+    if (authStatus) {
+      history.push(`/`);
+    }
 
     return (
       <div className="page page--gray page--login">
@@ -63,4 +68,13 @@ export default class SignIn extends PureComponent {
 SignIn.propTypes = {
   children: PropTypes.object,
   onSubmit: PropTypes.func.isRequired,
+  authStatus: PropTypes.bool.isRequired,
+  history: PropTypes.object,
 };
+
+const mapStateToProps = (state) => ({
+  authStatus: state.authStatus,
+});
+
+export {SignIn};
+export default connect(mapStateToProps)(SignIn);

@@ -25,3 +25,29 @@ export const parseOffers = (offers) => {
     return adapterOffer;
   });
 };
+
+export const parseOfferTo = (offer) => {
+  const adapterOffer = Object.assign({}, offer, {
+    title: offer.name,
+    // eslint-disable-next-line camelcase
+    is_favorite: offer.inBookmarks,
+    // eslint-disable-next-line camelcase
+    is_premium: offer.mark !== `none`,
+    rating: ((offer.rating * 5) / 100).toString(),
+    // eslint-disable-next-line camelcase
+    max_adults: offer.adults,
+    goods: offer.inside,
+  });
+
+  delete adapterOffer.name;
+  delete adapterOffer.inBookmarks;
+  delete adapterOffer.mark;
+  delete adapterOffer.adults;
+  delete adapterOffer.inside;
+  delete adapterOffer.priceText;
+  delete adapterOffer.coords;
+  delete adapterOffer.city.coords;
+  delete adapterOffer.city.zoom;
+
+  return adapterOffer;
+};
