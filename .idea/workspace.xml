@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1da85ff1-6eb6-4a37-b081-8cfbea6c5c61" name="Default Changelist" comment="add specification" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="module7task2" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="ProjectId" id="1mbU88Mi7hrpTiH0DsrTAIuNW0V" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Сайты\Обучение\HTML Academy\[HTML Academy] Профессиональный онлайн‑курс JavaScript [Уровень 3] (2019)\870965-six-cities-5\src\components" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1da85ff1-6eb6-4a37-b081-8cfbea6c5c61" name="Default Changelist" comment="" />
+      <created>1609761624794</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1609761624794</updated>
+      <workItem from="1609761627837" duration="5998000" />
+      <workItem from="1609779550547" duration="4008000" />
+      <workItem from="1609788428555" duration="4686000" />
+      <workItem from="1610265774503" duration="13247000" />
+      <workItem from="1610346414422" duration="4031000" />
+      <workItem from="1610396076105" duration="24106000" />
+      <workItem from="1610911075651" duration="6747000" />
+      <workItem from="1610988777708" duration="8286000" />
+      <workItem from="1611133026150" duration="11493000" />
+      <workItem from="1611149510450" duration="3153000" />
+      <workItem from="1611208895447" duration="29574000" />
+      <workItem from="1611502632401" duration="21858000" />
+      <workItem from="1611560764062" duration="1506000" />
+      <workItem from="1611568267344" duration="7779000" />
+      <workItem from="1611584759839" duration="10118000" />
+      <workItem from="1611644910832" duration="375000" />
+      <workItem from="1611646209265" duration="453000" />
+      <workItem from="1611676609480" duration="11896000" />
+      <workItem from="1611758302646" duration="988000" />
+      <workItem from="1611855247793" duration="10761000" />
+      <workItem from="1611939130191" duration="4954000" />
+      <workItem from="1612168729079" duration="14678000" />
+      <workItem from="1612208883835" duration="3186000" />
+      <workItem from="1612267922127" duration="19450000" />
+      <workItem from="1612365176226" duration="258000" />
+      <workItem from="1612365514983" duration="597000" />
+      <workItem from="1612377849662" duration="55000" />
+      <workItem from="1612378158399" duration="4145000" />
+      <workItem from="1612636025647" duration="9699000" />
+      <workItem from="1612684647749" duration="2202000" />
+      <workItem from="1612704853698" duration="1358000" />
+      <workItem from="1612707431769" duration="1087000" />
+      <workItem from="1612715087454" duration="38713000" />
+    </task>
+    <task id="LOCAL-00001" summary="install dependencies&#10;configured esLint&#10;configured webpack">
+      <created>1609767074351</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1609767074351</updated>
+    </task>
+    <task id="LOCAL-00002" summary="correct dependencies">
+      <created>1609788013208</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1609788013208</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add prop-types, Jest, Enzyme&#10;add some tests">
+      <created>1610346690159</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1610346690159</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add rating span style in place card">
+      <created>1610458988984</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1610458988985</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add offers mock">
+      <created>1610464965241</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1610464965241</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add places list component. Place card use mock data">
+      <created>1610478563723</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1610478563723</updated>
+    </task>
+    <task id="LOCAL-00007" summary="correct mock url">
+      <created>1610478673782</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1610478673782</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add snapshot tests">
+      <created>1610538785631</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1610538785631</updated>
+    </task>
+    <task id="LOCAL-00009" summary="snapshot tests refactoring">
+      <created>1610538988575</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1610538988575</updated>
+    </task>
+    <task id="LOCAL-00010" summary="add e2e test for card list component&#10;refactor onhover function">
+      <created>1610607944214</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1610607944214</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add e2e test for card list component&#10;refactor onhover function">
+      <created>1610607967685</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1610607967685</updated>
+    </task>
+    <task id="LOCAL-00012" summary="add Main component">
+      <created>1610981925096</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1610981925096</updated>
+    </task>
+    <task id="LOCAL-00013" summary="add Property component&#10;some mock and place card refactoring">
+      <created>1610999707175</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1610999707175</updated>
+    </task>
+    <task id="LOCAL-00014" summary="add snapshot tests">
+      <created>1611001245567</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1611001245567</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add snapshot tests">
+      <created>1611133062863</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1611133062863</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add snapshot tests">
+      <created>1611133299577</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1611133299577</updated>
+    </task>
+    <task id="LOCAL-00017" summary="add leaflet">
+      <created>1611134175535</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1611134175535</updated>
+    </task>
+    <task id="LOCAL-00018" summary="add leaflet component">
+      <created>1611138226661</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1611138226661</updated>
+    </task>
+    <task id="LOCAL-00019" summary="add leaflet snapshot test&#10;some refactoring">
+      <created>1611142525355</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1611142525355</updated>
+    </task>
+    <task id="LOCAL-00020" summary="add reviews component">
+      <created>1611149804279</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1611149804279</updated>
+    </task>
+    <task id="LOCAL-00021" summary="add snapshot tests">
+      <created>1611150141557</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1611150141557</updated>
+    </task>
+    <task id="LOCAL-00022" summary="add map at property page">
+      <created>1611151020295</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1611151020295</updated>
+    </task>
+    <task id="LOCAL-00023" summary="refactoring card list component and use it at property">
+      <created>1611218115188</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1611218115188</updated>
+    </task>
+    <task id="LOCAL-00024" summary="add redux reducer">
+      <created>1611317893290</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1611317893290</updated>
+    </task>
+    <task id="LOCAL-00025" summary="migrate state from App to Redux">
+      <created>1611323454484</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1611323454484</updated>
+    </task>
+    <task id="LOCAL-00026" summary="migrate state to Redux&#10;Add Location component">
+      <created>1611510990303</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1611510990304</updated>
+    </task>
+    <task id="LOCAL-00027" summary="add snapshot tests">
+      <created>1611575836537</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1611575836537</updated>
+    </task>
+    <task id="LOCAL-00028" summary="add sort">
+      <created>1611595084855</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1611595084855</updated>
+    </task>
+    <task id="LOCAL-00029" summary="add select active map pin on map">
+      <created>1611603183567</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1611603183567</updated>
+    </task>
+    <task id="LOCAL-00030" summary="migrate sort state in hock">
+      <created>1611753566469</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1611753566470</updated>
+    </task>
+    <task id="LOCAL-00031" summary="add places-empty component">
+      <created>1611758478677</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1611758478677</updated>
+    </task>
+    <task id="LOCAL-00032" summary="configure work with server - get offers and adapt it for app">
+      <created>1611944062410</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1611944062410</updated>
+    </task>
+    <task id="LOCAL-00033" summary="add sign in component">
+      <created>1611945308285</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1611945308285</updated>
+    </task>
+    <task id="LOCAL-00034" summary="add user authorization">
+      <created>1612178370040</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1612178370040</updated>
+    </task>
+    <task id="LOCAL-00035" summary="add getting reviews from server,&#10;add post form review functionality">
+      <created>1612291478388</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1612291478388</updated>
+    </task>
+    <task id="LOCAL-00036" summary="move handle review form functionality to hoc">
+      <created>1612335220075</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1612335220075</updated>
+    </task>
+    <task id="LOCAL-00037" summary="add routing">
+      <created>1612716040401</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1612716040401</updated>
+    </task>
+    <task id="LOCAL-00038" summary="add favorites offers functionality">
+      <created>1612810974591</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1612810974591</updated>
+    </task>
+    <task id="LOCAL-00039" summary="some refactoring">
+      <created>1612872027572</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1612872027573</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add Main component" />
+    <MESSAGE value="add Property component&#10;some mock and place card refactoring" />
+    <MESSAGE value="add leaflet" />
+    <MESSAGE value="add leaflet component" />
+    <MESSAGE value="add leaflet snapshot test&#10;some refactoring" />
+    <MESSAGE value="add reviews component" />
+    <MESSAGE value="add map at property page" />
+    <MESSAGE value="refactoring card list component and use it at property" />
+    <MESSAGE value="add redux reducer" />
+    <MESSAGE value="migrate state from App to Redux" />
+    <MESSAGE value="migrate state to Redux&#10;Add Location component" />
+    <MESSAGE value="add snapshot tests" />
+    <MESSAGE value="add sort" />
+    <MESSAGE value="add select active map pin on map" />
+    <MESSAGE value="migrate sort state in hock" />
+    <MESSAGE value="add places-empty component" />
+    <MESSAGE value="configure work with server - get offers and adapt it for app" />
+    <MESSAGE value="add sign in component" />
+    <MESSAGE value="add user authorization" />
+    <MESSAGE value="add getting reviews from server,&#10;add post form review functionality" />
+    <MESSAGE value="move handle review form functionality to hoc" />
+    <MESSAGE value="add routing" />
+    <MESSAGE value="add favorites offers functionality" />
+    <MESSAGE value="some refactoring" />
+    <MESSAGE value="add specification" />
+    <option name="LAST_COMMIT_MESSAGE" value="add specification" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="638" y="305" key="#ESLint" timestamp="1611141568918">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="638" y="305" key="#ESLint/0.0.1536.824@0.0.1536.824" timestamp="1611141568918" />
+    <state x="504" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1611943053120">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="504" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1611943053120" />
+    <state x="548" y="153" key="FileChooserDialogImpl" timestamp="1612788504488">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="548" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1612788504488" />
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1609771352031">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609771352031" />
+    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1609771352030">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1609771352030" />
+    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1609771352030">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1609771352030" />
+    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1609771352031">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1609771352031" />
+    <state x="306" y="115" key="RollbackChangesDialog" timestamp="1610999732824">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="306" y="115" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1610999732824" />
+    <state x="277" y="57" key="SettingsEditor" timestamp="1612377905519">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1612377905519" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1612873664427">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1612873664427" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611645072953">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1611645072953" />
+    <state x="478" y="11" width="579" height="801" key="find.popup" timestamp="1609784214090">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="478" y="11" width="579" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1609784214090" />
+    <state x="539" y="304" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1610999769012">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="539" y="304" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1536.824@0.0.1536.824" timestamp="1610999769012" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1610463978879">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1610463978879" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1610983630328">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1610983630328" />
+  </component>
+</project>
