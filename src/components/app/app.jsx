@@ -49,23 +49,15 @@ class App extends PureComponent {
         <Route path="/" exact render={(props)=> <Main {...props}>{header}</Main>}/>
         <Route path="/login" exact render={(props)=> <SignIn {...props} onSubmit={login}>{header}</SignIn>}/>
         <Route path="/favorites" exact render={(props)=> <Favorites {...props} footer={footer}>{header}</Favorites>}/>
-        <Route path="/property/:offerId" exact component={Property}>
-        </Route>
+        <Route path="/property/:offerId" exact component={Property} />
       </Switch>
     );
   }
 }
 
 App.propTypes = {
-  currentOfferId: PropTypes.any,
-  authStatus: PropTypes.bool,
-  login: PropTypes.func,
+  login: PropTypes.func.isRequired,
 };
-
-const mapStateToProps = (state) => ({
-  currentOfferId: state.currentOfferId,
-  authStatus: state.authStatus,
-});
 
 const mapDispatchToProps = (dispatch) => ({
   login(authData) {
@@ -74,4 +66,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export {App};
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

@@ -13,9 +13,7 @@ const PlaceCard = (props) => {
         `cities__place-card place-card` :
         `${theme}__card place-card`
       }
-      onMouseEnter={() => {
-        onCardHover(offer);
-      }}>
+    >
       {offer.mark === `none` ? `` : (
         <div className="place-card__mark">
           <span>{offer.mark}</span>
@@ -23,7 +21,10 @@ const PlaceCard = (props) => {
       )}
 
       <div className={`${theme}__image-wrapper place-card__image-wrapper`}>
-        <a href="#">
+        <a onClick={(evt) => {
+          evt.preventDefault();
+          onCardHover(offer);
+        }} href="#">
           <img
             className={`place-card__image`}
             src={offer.images[0]}

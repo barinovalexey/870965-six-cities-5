@@ -5,7 +5,6 @@ import {parseReviews} from "./adapters/reviews";
 const initialState = {
   offersFromServer: [],
   currentCity: ``,
-  currentOfferId: null,
   offers: [],
   cities: {},
   activeSortingOption: `Popular`,
@@ -19,7 +18,6 @@ const initialState = {
 const ActionType = {
   CHANGE_CITY: `CHANGE_CITY`,
   SET_OFFERS: `SET_OFFERS`,
-  SET_OFFER_ID: `SAVE_OFFER_ID`,
   SET_SORT: `SET_SORT`,
   SET_CITIES: `SET_CITIES`,
   SET_ACTIVE_CARD: `SET_ACTIVE_CARD`,
@@ -31,10 +29,6 @@ const ActionType = {
 };
 
 const ActionCreator = {
-  setOfferId: (offer) => ({
-    type: ActionType.SET_OFFER_ID,
-    payload: offer.id,
-  }),
   changeCity: (cityName) => ({
     type: ActionType.CHANGE_CITY,
     payload: cityName,
@@ -173,9 +167,6 @@ const reducer = (state = initialState, action) => {
       });
 
       return Object.assign({}, state, {cities});
-    }
-    case ActionType.SET_OFFER_ID: {
-      return Object.assign({}, state, {currentOfferId: action.payload});
     }
     case ActionType.SET_AUTH: {
       return Object.assign({}, state, {authStatus: action.payload});
