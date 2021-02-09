@@ -5,11 +5,12 @@ import {connect} from "react-redux";
 import PlacesSorting from "../places-sorting/places-sorting.jsx";
 import withToggle from "../../hocs/with-toggle/with-toggle.jsx";
 import Leaflet from "../leaflet/leaflet.jsx";
+import {ActionCreator} from "../../reducer";
 
 const PlacesSortingWithToggle = withToggle(PlacesSorting);
 
 const Places = (props) => {
-  const {offers, currentCity, cities} = props;
+  const {offers, currentCity, cities, onCardHover, history} = props;
   return (
     <Fragment>
       <section className="cities__places places">
@@ -17,7 +18,10 @@ const Places = (props) => {
         <b className="places__found">{offers.length} places to stay in {currentCity}</b>
         <PlacesSortingWithToggle/>
         <PlacesList
+          offers = {offers}
           theme = {`cities`}
+          onCardHover = {onCardHover}
+          history = {history}
         />
       </section>
       <div className="cities__right-section">
@@ -25,6 +29,7 @@ const Places = (props) => {
           <Leaflet
             city = {cities[currentCity].coords}
             zoom = {cities[currentCity].zoom}
+            offers = {offers}
           />
         </section>
       </div>
@@ -36,6 +41,8 @@ Places.propTypes = {
   offers: PropTypes.array.isRequired,
   currentCity: PropTypes.string.isRequired,
   cities: PropTypes.object.isRequired,
+  onCardHover: PropTypes.func.isRequired,
+  history: PropTypes.object,
 };
 
 const mapStateToProps = (state) => ({
@@ -44,5 +51,11 @@ const mapStateToProps = (state) => ({
   cities: state.cities,
 });
 
+const mapDispatchToProps = (dispatch) => ({
+  onCardHover(card) {
+    dispatch(ActionCreator.setActiveCard(card));
+  },
+});
+
 export {Places};
-export default connect(mapStateToProps)(Places);
+export default connect(mapStateToProps, mapDispatchToProps)(Places);

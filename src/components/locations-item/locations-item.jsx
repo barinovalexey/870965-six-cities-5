@@ -26,7 +26,7 @@ LocationsItem.propTypes = {
 const mapDispatchToProps = (dispatch) => ({
   onCityClick(cityName) {
     dispatch(ActionCreator.changeCity(cityName));
-    dispatch(ActionCreator.getOffers());
+    dispatch(ActionCreator.setOffers());
   },
 });
 
